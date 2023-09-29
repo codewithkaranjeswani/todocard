@@ -1,7 +1,18 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
-    <div className="flex flex-col gap-y-10 py-10">
-      <div className="text-3xl flex justify-center">TodoList App</div>;
-    </div>
+    <section className="container mx-auto">
+      <div className="flex flex-col items-center py-10 gap-y-4">
+        <div className="text-3xl flex">TodoCard</div>
+        <div>For your Todo Tasks, Always!</div>
+        <div>
+          To create your TodoCard{" "}
+          <Link className="underline" href="/">
+            Signin
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 }
