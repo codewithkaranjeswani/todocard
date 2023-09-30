@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "react-toastify";
 import { toastifyError } from "@/app/lib/error";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 export default function SignupForm() {
   const router = useRouter();
@@ -50,10 +51,10 @@ export default function SignupForm() {
   }
 
   return (
-    <>
+    <div className="flex w-full flex-col gap-y-8 p-10">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex w-full flex-col gap-y-8 p-10"
+        className="flex w-full flex-col gap-y-8"
       >
         <h1 className="flex justify-center text-3xl font-bold leading-tight tracking-tight">
           Sign Up
@@ -144,16 +145,23 @@ export default function SignupForm() {
         >
           Sign Up
         </button>
-        <p className="text-base font-light text-gray-500 dark:text-gray-400">
-          Already have your account?{" "}
-          <Link
-            href="/auth/signin"
-            className="font-medium text-gray-600 hover:underline dark:text-gray-500"
-          >
-            Sign In
-          </Link>
-        </p>
       </form>
-    </>
+      <div className="text-center">OR</div>
+      <button
+        className="rounded-lg bg-blue-600 px-5 py-2.5 text-center text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+        onClick={() => signIn("github")}
+      >
+        Sign In with Github
+      </button>
+      <p className="text-base font-light text-gray-500 dark:text-gray-400">
+        Already have your account?{" "}
+        <Link
+          href="/auth/signin"
+          className="font-medium text-gray-600 hover:underline dark:text-gray-500"
+        >
+          Sign In
+        </Link>
+      </p>
+    </div>
   );
 }

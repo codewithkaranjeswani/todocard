@@ -1,5 +1,5 @@
 import NextAuth, { Account, Session, User } from "next-auth";
-// import GithubProvider from "next-auth/providers/github";
+import GithubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
 import {
   Role,
@@ -86,10 +86,10 @@ export const authOptions = {
         }
       },
     }),
-    // GithubProvider({
-    //   clientId: process.env.GITHUB_ID,
-    //   clientSecret: process.env.GITHUB_SECRET,
-    // }),
+    GithubProvider({
+      clientId: env.GITHUB_ID,
+      clientSecret: env.GITHUB_SECRET,
+    }),
     // ...add more providers here
   ],
   pages: {
