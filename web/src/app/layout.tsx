@@ -18,15 +18,11 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSession(authOptions);
-  if (!session) {
-    return <></>;
-  }
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
         <div className="flex min-h-screen flex-col justify-between bg-neutral-100 dark:bg-neutral-900">
-          <Providers session={session}>
+          <Providers>
             <Navbar />
             {children}
             <Footer />

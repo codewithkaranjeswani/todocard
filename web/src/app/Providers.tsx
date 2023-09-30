@@ -3,15 +3,9 @@ import { ThemeProvider } from "next-themes";
 import { SessionProvider } from "next-auth/react";
 import { Session } from "next-auth";
 
-export default function Providers({
-  children,
-  session,
-}: {
-  children: React.ReactNode;
-  session: Session;
-}) {
+export default function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <SessionProvider session={session}>
+    <SessionProvider>
       <ThemeProvider enableSystem={true} attribute="class">
         {children}
       </ThemeProvider>
