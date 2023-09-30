@@ -8,7 +8,7 @@ export default function Home() {
         <div>For your Todo Tasks, Always!</div>
         <div>
           To create your TodoCard{" "}
-          <Link className="underline" href="/">
+          <Link className="underline" href="/auth/signin">
             Signin
           </Link>
         </div>

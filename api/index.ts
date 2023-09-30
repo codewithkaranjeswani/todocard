@@ -4,11 +4,13 @@ import config from "./config";
 import authRoutes from "./routes/auth";
 import todoRoutes from "./routes/todo";
 import cors from "cors";
+import { loggingMiddleware } from "./middleware";
 
 const app: Express = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(loggingMiddleware);
 app.use("/auth", authRoutes);
 app.use("/todo", todoRoutes);
 

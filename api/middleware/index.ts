@@ -35,3 +35,18 @@ export const authenticateJwt = (
     res.sendStatus(401);
   }
 };
+
+export const loggingMiddleware = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const t = new Date().toLocaleString();
+  console.log(`time = ${t}`);
+  console.log(
+    `req = ${req.originalUrl}, ${req.method}, req.pathparams = ${JSON.stringify(
+      req.params
+    )}, req.queryparams = ${JSON.stringify(req.query)}`
+  );
+  next();
+};

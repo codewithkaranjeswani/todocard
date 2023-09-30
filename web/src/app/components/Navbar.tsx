@@ -13,7 +13,7 @@ function Navbar() {
         <div className="py-3 hover:cursor-pointer md:block">
           <Link href="/">
             <h2 className="text-2xl text-neutral-900 hover:text-neutral-700 dark:text-neutral-100 dark:hover:text-neutral-300">
-              TodoCards
+              TodoCard
             </h2>
           </Link>
         </div>
@@ -21,7 +21,7 @@ function Navbar() {
         <div className="flex gap-x-2">
           <div>
             <Link
-              href="/"
+              href="/auth/signin"
               className="flex h-full items-center text-neutral-900 hover:text-neutral-700 dark:text-neutral-100 dark:hover:text-neutral-300"
               onClick={() => setNavbar((nb) => !nb)}
             >
